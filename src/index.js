@@ -21,7 +21,9 @@ mongoose.connect(dbUrl, options, (err) => {
   });
 
 
-  
+  app.use("/",(req,res)=>{
+    res.send("hello")
+  })
 
 
 
