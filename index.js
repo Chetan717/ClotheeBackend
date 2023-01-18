@@ -3,10 +3,10 @@ const cors = require("cors")
 const mongoose = require("mongoose");
 const port = process.env.PORT || 4000
 const app = express();
-const config = require("./Db/Config");
+const config = require("./src/Db/Config");
 
-const Datamodel = require("./Db/UserModel")
-const Products = require("./Db/Product")
+const Datamodel = require("./src/Db/UserModel")
+const Products = require("./src/Db/Product")
 app.use(express.json())
 app.use(cors());
 const dbUrl = config.dbUrl;
@@ -21,10 +21,9 @@ mongoose.connect(dbUrl, options, (err) => {
   });
 
 
-  app.use("/",(req,res)=>{
-    res.send("hello")
+  app.get("/",(req,res)=>{
+    res.send("hello devlopers")
   })
-
 
 
 app.post("/register",async(req,res)=>{
