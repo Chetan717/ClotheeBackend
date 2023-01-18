@@ -38,6 +38,12 @@ const productSchema  = new mongoose.Schema({
     gender:{
         type:Number
     },
+    review:{
+        type:Number
+    },
+    des:{
+        type:String
+    },
 })
 const Products = mongoose.model("product",productSchema);
 
