@@ -1,11 +1,11 @@
 require("dotenv").config()
-const cors = require("cors")
-const express = require('express')
 
+const express = require('express')
+const cors = require("cors")
 const app = express();
 
 app.listen(3001);
-app.use(cors());
+
 const aws = require('aws-sdk')
 const multer = require('multer')
 const multerS3 = require('multer-s3');
@@ -31,6 +31,8 @@ const upload = multer({
         }
     })
 })
+
+app.use(cors());
 
 app.post('/upload', upload.single('file'), async function (req, res, next) {
 
