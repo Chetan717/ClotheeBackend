@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require("cors")
 const app = express();
 app.use(cors());
-app.listen(3001);
+app.listen(3000);
 
 const aws = require('aws-sdk')
 const multer = require('multer')
