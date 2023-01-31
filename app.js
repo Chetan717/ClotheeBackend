@@ -3,7 +3,7 @@ require("dotenv").config()
 const express = require('express')
 const cors = require("cors")
 const app = express();
-
+app.use(cors());
 app.listen(3001);
 
 const aws = require('aws-sdk')
@@ -32,7 +32,7 @@ const upload = multer({
     })
 })
 
-app.use(cors());
+
 
 app.post('/upload', upload.single('file'), async function (req, res, next) {
 
