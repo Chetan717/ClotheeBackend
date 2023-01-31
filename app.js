@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require("cors")
 const app = express();
 app.use(cors());
-app.listen(3000);
+app.listen(3001);
 
 const aws = require('aws-sdk')
 const multer = require('multer')
@@ -27,7 +27,7 @@ const upload = multer({
         bucket: BUCKET,
         key: function (req, file, cb) {
             console.log(file);
-            cb(null, Date.now()+file.originalname)
+            cb(null,file.originalname)
         }
     })
 })
@@ -44,8 +44,12 @@ app.get("/list", async (req, res) => {
 
     let r = await s3.listObjectsV2({ Bucket: BUCKET }).promise();
     let x = r.Contents.map(item => item.Key);
- 
-    res.send(x)
+    let s = r.Contents.map(item => item.Size)
+let dataarray = [{key:x,size:s}]
+
+    res.send(dataarray)
+    
+    console.log(r)
 })
 
 
