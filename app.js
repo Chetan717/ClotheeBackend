@@ -1,11 +1,11 @@
 require("dotenv").config()
-
+const cors = require("cors")
 const express = require('express')
 
 const app = express();
 
 app.listen(3001);
-
+app.use(cors());
 const aws = require('aws-sdk')
 const multer = require('multer')
 const multerS3 = require('multer-s3');
