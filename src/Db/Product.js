@@ -44,6 +44,9 @@ const productSchema  = new mongoose.Schema({
     des:{
         type:String
     },
+    other:{
+        type:String
+    },
 })
 const Products = mongoose.model("product",productSchema);
 
