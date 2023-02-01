@@ -3,8 +3,9 @@ require("dotenv").config()
 const express = require('express')
 const cors = require("cors")
 const app = express();
+const http = 3001
 app.use(cors());
-app.listen(3001);
+app.listen(http);
 
 const aws = require('aws-sdk')
 const multer = require('multer')
@@ -47,7 +48,7 @@ app.get("/list", async (req, res) => {
     let s = r.Contents.map(item => item.Size)
     res.send(r)
     
-
+console.log(r)
 
 })
 
