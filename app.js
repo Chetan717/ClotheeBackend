@@ -45,12 +45,10 @@ app.get("/list", async (req, res) => {
     let r = await s3.listObjectsV2({ Bucket: BUCKET }).promise();
     let x = r.Contents.map(item => item.Key);
     let s = r.Contents.map(item => item.Size)
-let dataarray = [{key:x,size:s}]
-
-    res.send(dataarray)
+    res.send(r)
     
 
-    
+
 })
 
 
