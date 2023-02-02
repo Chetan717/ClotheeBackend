@@ -7,7 +7,7 @@ const config = require("./src/Db/Config");
 
 const Datamodel = require("./src/Db/UserModel")
 const Image = require("./src/Db/imagechema")
-const Videos = require("./src/Db/imagechema")
+const Videos = require("./src/Db/Videomodel")
 
 app.use(express.json())
 app.use(cors());
